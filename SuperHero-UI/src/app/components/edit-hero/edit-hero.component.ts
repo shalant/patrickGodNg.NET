@@ -17,22 +17,22 @@ export class EditHeroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateHero(hero:SuperHero) {
+  updateHero(hero: SuperHero) {
     this.superHeroService
       .updateHero(hero)
-      .subscribe((heroes: SuperHero[]) => this.heroesUpdated)
+      .subscribe((heroes: SuperHero[]) => this.heroesUpdated.emit(heroes));
   }
 
-  deleteHero(hero:SuperHero) {
+  deleteHero(hero: SuperHero) {
     this.superHeroService
     .deleteHero(hero)
-    .subscribe((heroes: SuperHero[]) => this.heroesUpdated)
+    .subscribe((heroes: SuperHero[]) => this.heroesUpdated.emit(heroes));
   }
 
-  createHero(hero:SuperHero) {
+  createHero(hero: SuperHero) {
     this.superHeroService
     .createHero(hero)
-    .subscribe((heroes: SuperHero[]) => this.heroesUpdated)
+    .subscribe((heroes: SuperHero[]) => this.heroesUpdated.emit(heroes));
   }
 
 }
